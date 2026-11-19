@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مكتبة التطبيقات</title>
+<meta name="description" content="تطبيقات تعليمية وهندسية تفاعلية: كتاب الكيمياء ثلاثي الأبعاد، ومنصة إنشاءات للاستشارات الهندسية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wood:#3a2c1f; --wood-deep:#241b13; --paper:#f3ead8; --gold:#ffd23a;
+  --ink:#fff;
+}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{
+  font-family:"Amiri","Noto Naskh Arabic","Traditional Arabic",serif;
+  color:var(--ink);
+  background:radial-gradient(ellipse at 50% 0%,#52402d 0%,var(--wood) 40%,var(--wood-deep) 100%) fixed;
+  padding:clamp(24px,5vw,64px) 20px 56px;
+  line-height:1.9;
+}
+header{max-width:720px;margin:0 auto clamp(28px,5vw,56px);text-align:center}
+header h1{font-size:clamp(34px,6vw,54px);font-weight:700;color:var(--paper);line-height:1.4}
+header p{font-size:clamp(17px,2.4vw,20px);color:#d9cbb0;margin-top:8px}
+
+.shelf{
+  max-width:1160px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:clamp(24px,3.5vw,44px);justify-items:center;
+}
+
+/* غلاف الكتاب */
+.book{
+  --cover:#2e8b4f; --cover-dark:#1f6b3a; --band:#1f4e9e;
+  position:relative;width:100%;max-width:340px;
+  border-radius:14px 12px 12px 14px;overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 1px,transparent 1px 4px),
+    linear-gradient(160deg,var(--cover),var(--cover-dark));
+  box-shadow:0 22px 40px rgba(0,0,0,.5),inset 14px 0 0 rgba(0,0,0,.18);
+  display:flex;flex-direction:column;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.book:hover,.book:focus-within{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 30px 48px rgba(0,0,0,.55),inset 14px 0 0 rgba(0,0,0,.18)}
+.book::before{ /* شريط علوي */
+  content:"";height:34px;background:rgba(255,255,255,.07);
+}
+.ribbon{
+  position:absolute;top:0;left:34px;width:19px;height:70px;background:var(--gold);
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);
+}
+.band{
+  background:var(--band);padding:18px 20px 20px;text-align:center;
+  box-shadow:0 2px 0 rgba(0,0,0,.18);
+}
+.band small{display:block;font-size:15px;opacity:.9}
+.band h2{font-size:clamp(40px,5vw,50px);font-weight:700;line-height:1.35}
+.band .grade{font-size:19px}
+.body{padding:20px 22px 26px;text-align:center;display:flex;flex-direction:column;gap:16px;flex:1}
+.body p{font-size:18px;line-height:1.85}
+.pill{
+  align-self:center;background:#fff;color:var(--cover-dark);
+  padding:6px 20px;border-radius:999px;font-size:17px;font-weight:700;
+}
+.open{
+  margin-top:auto;align-self:center;
+  display:inline-block;text-decoration:none;color:#fff;
+  background:var(--band);border:2px solid #fff;border-radius:12px;
+  padding:10px 34px;font:700 22px/1.5 inherit;font-family:inherit;
+  transition:background .2s,color .2s;
+}
+.open:hover{background:#fff;color:var(--band)}
+.open:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.soon .open{
+  background:transparent;border-style:dashed;opacity:.8;pointer-events:none;
+}
+
+/* ألوان كل غلاف */
+.chem{--cover:#2e8b4f;--cover-dark:#1f6b3a;--band:#1f4e9e}
+.eng{--cover:#5b6f86;--cover-dark:#3b4a5d;--band:#8a1f36}
+.read{--cover:#2f7f85;--cover-dark:#1e5a60;--band:#6a3f8e}
+
+footer{text-align:center;margin-top:clamp(32px,5vw,56px);font-size:16px;color:#bfae8e}
+
+@media (prefers-reduced-motion:reduce){
+  .book,.open{transition:none}
+  .book:hover,.book:focus-within{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>مكتبة التطبيقات</h1>
+  <p>كتب وأدوات تفاعلية، افتح الكتاب الذي تريده من الرف.</p>
+</header>
+
+<main class="shelf">
+
+  <!-- 1) كتاب الكيمياء -->
+  <article class="book chem">
+    <span class="ribbon" aria-hidden="true"></span>
+    <div class="band">
+      <small>كتاب تفاعلي ثلاثي الأبعاد</small>
+      <h2>الكيمياء</h2>
+      <div class="grade">للصف الخامس العلمي</div>
+    </div>
+    <div class="body">
+      <p>فصول الكتاب الثمانية في 64 صفحة منبثقة، يجرّب فيها الطالب الذرات والتفاعلات بيده ويرى الكيمياء تتحرك أمامه.</p>
+      <span class="pill">الفصل الأول من الكتاب مجاني بالكامل</span>
+      <a class="open" href="https://imadmfas.github.io/chemistry5/">افتح الكتاب</a>
+    </div>
+  </article>
+
+  <!-- 2) منصة إنشاءات -->
+  <!-- غيّر الرابط التالي إلى رابط تطبيقك على Streamlit Community Cloud -->
+  <article class="book eng">
+    <span class="ribbon" aria-hidden="true"></span>
+    <div class="band">
+      <small>منصة هندسية مجانية</small>
+      <h2>منصة إنشاءات</h2>
+      <div class="grade">للاستشارات الهندسية</div>
+    </div>
+    <div class="body">
+      <p>دراسة الجدوى الاقتصادية وتصميم محطة رفع ومعالجة مياه الصرف، في تطبيق واحد تدخل إليه وتبدأ الحساب مباشرة.</p>
+      <span class="pill">مجاني بلا تسجيل</span>
+      <a class="open" href="https://YOUR-APP-NAME.streamlit.app">افتح المنصة</a>
+    </div>
+  </article>
+
+  <!-- 3) الكتاب التفاعلي الذكي -->
+  <article class="book read soon">
+    <span class="ribbon" aria-hidden="true"></span>
+    <div class="band">
+      <small>قارئ كتب بالذكاء الاصطناعي</small>
+      <h2>الكتاب التفاعلي</h2>
+      <div class="grade">قلّب الصفحات واقرأ الشرح</div>
+    </div>
+    <div class="body">
+      <p>يعرض الكتاب المصوّر بتقليب صفحاته، ويشرح الأشكال والصور في جانب الصفحة.</p>
+      <span class="pill">قريباً</span>
+      <a class="open" href="#" aria-disabled="true" tabindex="-1">قريباً</a>
+    </div>
+  </article>
+
+</main>
+
+<footer>اختر كتاباً لتبدأ.</footer>
+
+</body>
+</html>
