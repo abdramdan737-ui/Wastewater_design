@@ -80,7 +80,18 @@ label { color: #475569 !important; font-weight: 600 !important; }
 [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {
     background: linear-gradient(90deg, rgba(56,189,248,.35), rgba(14,165,164,.35)); border-color: rgba(255,255,255,.5);
 }
-[data-testid="stSidebar"] [data-testid="stAlert"] { background: rgba(255,255,255,.1) !important; border: 1px solid rgba(255,255,255,.22); }
+[data-testid="stSidebar"] [data-testid="stAlert"],
+[data-testid="stSidebar"] [data-testid="stAlert"] > div {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stAlert"] p,
+[data-testid="stSidebar"] [data-testid="stAlert"] span,
+[data-testid="stSidebar"] [data-testid="stAlert"] div {
+    color: #FFFFFF !important;
+}
 
 /* ---------- الأزرار ---------- */
 .stButton > button, .stDownloadButton > button, [data-testid="stFormSubmitButton"] > button {
