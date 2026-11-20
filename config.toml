@@ -1,0 +1,17 @@
+# ضع هذا الملف في: .streamlit/config.toml بجانب secrets.toml ثم أعد تشغيل التطبيق (ليس سرياً)
+[theme]
+base = "light"
+primaryColor = "#1D4ED8"
+backgroundColor = "#F3F6FB"
+secondaryBackgroundColor = "#EAF0FB"
+textColor = "#1E293B"
+borderColor = "#CBD5E1"
+showWidgetBorder = true
+dataframeBorderColor = "#CBD5E1"
+dataframeHeaderBackgroundColor = "#E2E8F0"
+dataframeHeaderTextColor = "#1E3A8A"
+
+[theme.sidebar]
+backgroundColor = "#0B2545"
+secondaryBackgroundColor = "#13315C"
+textColor = "#FFFFFF"
